@@ -19,20 +19,20 @@ const fs = require ('fs');
 
     // delete
 
-    // fs.unlink ('demo2.txt', ( err ) => {
-    //     if (err){
-    //         console.log (err);
-    //     } else {
-    //         console.log ("successful");
-    //     }
+    fs.unlink ('demo2.txt', ( err ) => {
+        if (err){
+            console.log (err);
+        } else {
+            console.log ("successful");
+        }
 
     // file exit 
 
-    fs.exists ('demo2.txt',
-    (result) => {
-        if (result){
-            console.log ("found");
-        } else {
-            console.log ("Not Found");
-        }
+    // fs.exists ('demo2.txt',
+    // (result) => {
+    //     if (result){
+    //         console.log ("found");
+    //     } else {
+    //         console.log ("Not Found");
+    //     }
 });
