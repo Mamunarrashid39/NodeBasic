@@ -1,5 +1,6 @@
 const http = require ("http");
 const fs =  require ("fs");
+
 const PORT = 3000;
 
 const handleReadFile= (fileName, statusCode, req, res)=>{
@@ -14,21 +15,22 @@ const handleReadFile= (fileName, statusCode, req, res)=>{
     });
 }
 const server = http.createServer((req,res)=>{
-    res.end("welcome to server");
     
 if(req.url === "/"){
-    fs.readFile("index.html", "utf-8", (err,data)=>{
-        if(err){
-            console.log(err)
-        }else {
-            res.writeHead(200,{'content-type': "text/html"})
-            
-            res.write(data);
-        }
-    });
+    handleReadFile("index.html",200, req,res);
 }
+else if(req.url === "/about"){
+        handleReadFile("about.html",200, req,res);
+    }
+    else if(req.url === "/contact"){
+        handleReadFile("contact.html",200, req,res);
+    }
+    else {
+        handleReadFile("error.html",200, req,res);
+    }
+    
+    });
 
-});
 server.listen(PORT,()=>{
     console.log (`server is Running`);
 });
